@@ -1,0 +1,191 @@
+/* ===== Variáveis */
+:root {
+    --cor-fundo: #14121f;
+    --cor-papel: whitesmoke;
+    --cor-texto: #222;
+    --cor-destaque: #6c47ff;
+    --cor-destaque-claro: #e6e0ff;
+    --cor-rodape: #d4d4d4;
+    --largura-max: 900px;
+    --raio: 12px;
+    --espaco: 1.5rem;
+}
+
+/* ===== Reset simples ===== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: var(--espaco);
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: "Dosis", sans-serif;
+    font-size: 1.25rem;
+    line-height: 1.5;
+}
+
+h1,
+h2,
+p,
+ul,
+dl,
+figure {
+    margin: 0;
+}
+
+/* ===== Cartão: um container centralizado =====
+   max-width + margin-inline: auto no lugar de uma largura fixa */
+.cartao {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    max-width: var(--largura-max);
+    margin-inline: auto;
+    background-color: var(--cor-papel);
+    border-radius: var(--raio);
+    overflow: hidden; /* os cantos arredondados cortam o que passar */
+}
+
+/* ===== Perfil (coluna da esquerda) ===== */
+.perfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: calc(var(--espaco) * 2) var(--espaco);
+    background-color: var(--cor-destaque);
+    color: white;
+    text-align: center;
+}
+
+.foto {
+    width: 70%;
+    max-width: 200px;
+    aspect-ratio: 1; /* mantém a foto quadrada em qualquer largura */
+    border-radius: 50%;
+    border: 4px solid white;
+    overflow: hidden;
+}
+
+.foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* preenche o círculo sem deformar a foto */
+    display: block;
+}
+
+.perfil h1 {
+    font-size: 2rem;
+    line-height: 1.1;
+}
+
+.frase {
+    font-size: 1.1rem;
+}
+
+/* ===== Conteúdo (coluna da direita) ===== */
+.conteudo {
+    display: grid;
+    gap: var(--espaco);
+    padding: calc(var(--espaco) * 2);
+}
+
+.bloco h2 {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    color: var(--cor-destaque);
+}
+
+/* Hobbies e contatos viram "etiquetas" lado a lado */
+.hobbies,
+.contatos {
+    display: flex;
+    flex-wrap: wrap; /* quebra de linha quando faltar espaço */
+    gap: 0.5rem;
+    padding: 0;
+    list-style: none;
+}
+
+.hobbies li {
+    padding: 0.2rem 0.9rem;
+    border-radius: 999px;
+    background-color: var(--cor-destaque-claro);
+}
+
+/* Favoritos: grid de duas colunas (termo | descrição) */
+.favoritos {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.25rem 1rem;
+}
+
+.favoritos dt {
+    font-weight: bold;
+}
+
+.favoritos dd {
+    margin: 0;
+}
+
+/* Links de contato */
+.contatos a {
+    display: inline-block;
+    padding: 0.2rem 1rem;
+    border: 2px solid var(--cor-destaque);
+    border-radius: var(--raio);
+    color: var(--cor-destaque);
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.contatos a:hover,
+.contatos a:focus-visible {
+    background-color: var(--cor-destaque);
+    color: white;
+}
+
+/* Foco visível: ajuda quem navega pelo teclado */
+a:focus-visible {
+    outline: 3px solid var(--cor-destaque);
+    outline-offset: 2px;
+}
+
+/* Respeita quem prefere menos movimento na tela */
+@media (prefers-reduced-motion: reduce) {
+    .contatos a {
+        transition: none;
+    }
+}
+
+/* ===== Rodapé (ocupa as duas colunas) ===== */
+.rodape {
+    grid-column: 1 / -1;
+    padding: 0.5rem;
+    background-color: var(--cor-rodape);
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+.rodape a {
+    font-style: italic;
+}
+
+/* ===== Celular =====
+   Em telas estreitas, o perfil fica em cima e o conteúdo embaixo */
+@media (max-width: 700px) {
+    body {
+        padding: 0.75rem;
+    }
+
+    .cartao {
+        grid-template-columns: 1fr;
+    }
+
+    .conteudo {
+        padding: var(--espaco);
+    }
+}

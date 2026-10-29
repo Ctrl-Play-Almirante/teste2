@@ -1,0 +1,184 @@
+/* ===== Variáveis*/
+:root {
+    --cor-fundo: black;
+    --cor-papel: whitesmoke;
+    --cor-rodape: #d4d4d4;
+    --cor-borda: #999;
+    --cor-foco: #6c47ff;
+    --largura-max: 900px;
+    --raio: 8px;
+    --espaco: 1rem;
+}
+
+/* ===== Reset simples ===== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: var(--cor-fundo);
+    font-family: "Dosis", sans-serif;
+    font-size: 1.25rem;
+    line-height: 1.4;
+}
+
+/* Inputs e textareas não herdam a fonte sozinhos */
+input,
+textarea {
+    font: inherit;
+}
+
+/* ===== Ficha: um único container centralizado =====
+   max-width + margin-inline: auto no lugar de width: 900px + 100vw */
+.ficha {
+    max-width: var(--largura-max);
+    margin-inline: auto;
+}
+
+/* ===== Campos (label + input) ===== */
+label {
+    display: grid;
+    gap: 0.25rem;
+    text-align: center;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 0.4rem 0.6rem;
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio);
+}
+
+/* Foco visível: ajuda quem navega pelo teclado */
+input:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--cor-foco);
+    outline-offset: 1px;
+}
+
+/* ===== Cabeçalho =====
+   auto-fit + minmax: o número de colunas se ajusta sozinho à largura */
+.topo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--espaco);
+    padding: var(--espaco);
+    background-color: var(--cor-papel);
+}
+
+/* ===== Conteúdo principal ===== */
+.principal {
+    display: grid;
+    grid-template-columns: 0.5fr 1.5fr 1fr;
+    gap: var(--espaco);
+    padding: 2rem var(--espaco);
+    background-color: var(--cor-papel);
+}
+
+/* Atributos (coluna da esquerda) */
+.atributos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--espaco);
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.atributos legend {
+    padding: 0;
+    margin-bottom: var(--espaco);
+    font-weight: bold;
+}
+
+.atributos label {
+    font-weight: bold;
+}
+
+/* Vida / Defesa / Velocidade + imagem (coluna do meio) */
+.retrato {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espaco);
+}
+
+.status {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--espaco);
+}
+
+.status label {
+    font-size: 1.5rem;
+}
+
+.retrato img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: contain; /* mantém a proporção da imagem */
+}
+
+/* Textareas (biografia, equipamentos, características) */
+.texto-longo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: center;
+}
+
+.texto-longo label {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.texto-longo textarea {
+    flex: 1;
+    min-height: 12rem;
+    resize: vertical;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+/* ===== Conteúdo secundário ===== */
+.secundario {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--espaco);
+    padding: var(--espaco);
+    background-color: var(--cor-papel);
+}
+
+/* ===== Rodapé ===== */
+.rodape {
+    padding: 0.5rem;
+    background-color: var(--cor-rodape);
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+.rodape a {
+    font-style: italic;
+}
+
+/* ===== Celular =====
+   Em telas estreitas, tudo vira uma coluna só */
+@media (max-width: 700px) {
+    .principal,
+    .secundario {
+        grid-template-columns: 1fr;
+    }
+
+    .atributos {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .atributos legend {
+        grid-column: 1 / -1;
+    }
+}

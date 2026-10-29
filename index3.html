@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre mim</title>
+
+    <!-- Fonte carregada pelo HTML (mais rápido que @import no CSS) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <main class="cartao">
+
+        <!-- Perfil: foto, nome e uma frase curta -->
+        <header class="perfil">
+            <!-- <figure> agrupa a imagem; o alt descreve a foto para leitores de tela -->
+            <figure class="foto">
+                <img src="imgs/foto.png" alt="Foto de perfil do aluno">
+            </figure>
+            <h1>Seu Nome</h1>
+            <p class="frase">Estudante de programação e fã de bons jogos.</p>
+        </header>
+
+        <div class="conteudo">
+
+            <section class="bloco">
+                <h2>Sobre mim</h2>
+                <p>
+                    Escreva aqui um pequeno texto falando de você: onde mora,
+                    o que gosta de fazer e o que está aprendendo agora.
+                </p>
+            </section>
+
+            <section class="bloco">
+                <h2>Hobbies</h2>
+                <!-- Lista não ordenada: a ordem dos itens não importa -->
+                <ul class="hobbies">
+                    <li>Jogar videogame</li>
+                    <li>Desenhar</li>
+                    <li>Ouvir música</li>
+                    <li>Programar</li>
+                </ul>
+            </section>
+
+            <section class="bloco">
+                <h2>Favoritos</h2>
+                <!-- Lista de definição: cada termo (dt) tem a sua descrição (dd) -->
+                <dl class="favoritos">
+                    <dt>Jogo</dt>
+                    <dd>Escreva o seu</dd>
+                    <dt>Comida</dt>
+                    <dd>Escreva a sua</dd>
+                    <dt>Música</dt>
+                    <dd>Escreva a sua</dd>
+                </dl>
+            </section>
+
+            <section class="bloco">
+                <h2>Contato</h2>
+                <ul class="contatos">
+                    <!-- target="_blank" abre em outra aba; rel evita brechas de segurança -->
+                    <li><a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                    <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                    <!-- mailto: abre o programa de e-mail -->
+                    <li><a href="mailto:seu-email@exemplo.com">E-mail</a></li>
+                </ul>
+            </section>
+        </div>
+
+        <footer class="rodape">
+            🚀 <a href="#">Ctrl + Play</a> <!-- troque o # pelo link do site -->
+        </footer>
+    </main>
+</body>
+</html>

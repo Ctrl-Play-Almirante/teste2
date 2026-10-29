@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha de personagem</title>
+
+    <!-- Fonte carregada pelo HTML (mais rápido que @import no CSS) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style copy.css">
+</head>
+<body>
+    <!-- A ficha é um formulário: <form> envolve tudo -->
+    <form class="ficha">
+
+        <header class="topo">
+            <!-- <label for="..."> liga o texto ao campo: clicar no texto foca o input -->
+            <label for="personagem">Nome do personagem
+                <input type="text" id="personagem" name="personagem">
+            </label>
+            <label for="jogador">Nome do jogador
+                <input type="text" id="jogador" name="jogador">
+            </label>
+            <label for="xp">Pontos de experiência
+                <input type="number" id="xp" name="xp" min="0">
+            </label>
+            <label for="raca">Raça
+                <input type="text" id="raca" name="raca">
+            </label>
+            <label for="classe">Classe
+                <input type="text" id="classe" name="classe">
+            </label>
+            <label for="alinhamento">Alinhamento
+                <input type="text" id="alinhamento" name="alinhamento">
+            </label>
+        </header>
+
+        <main>
+            <section class="principal">
+
+                <!-- fieldset + legend agrupam campos que têm relação entre si -->
+                <fieldset class="atributos">
+                    <legend>Atributos</legend>
+                    <label for="forca">FOR
+                        <input type="number" id="forca" name="forca" min="1" max="30">
+                    </label>
+                    <label for="destreza">DES
+                        <input type="number" id="destreza" name="destreza" min="1" max="30">
+                    </label>
+                    <label for="constituicao">CON
+                        <input type="number" id="constituicao" name="constituicao" min="1" max="30">
+                    </label>
+                    <label for="inteligencia">INT
+                        <input type="number" id="inteligencia" name="inteligencia" min="1" max="30">
+                    </label>
+                    <label for="sabedoria">SAB
+                        <input type="number" id="sabedoria" name="sabedoria" min="1" max="30">
+                    </label>
+                    <label for="carisma">CAR
+                        <input type="number" id="carisma" name="carisma" min="1" max="30">
+                    </label>
+                </fieldset>
+
+                <div class="retrato">
+                    <div class="status">
+                        <label for="vida">Vida
+                            <input type="number" id="vida" name="vida" min="0">
+                        </label>
+                        <label for="defesa">Defesa
+                            <input type="number" id="defesa" name="defesa" min="0">
+                        </label>
+                        <label for="velocidade">Velocidade
+                            <input type="text" id="velocidade" name="velocidade">
+                        </label>
+                    </div>
+                    <!-- alt descreve a imagem para quem usa leitor de tela -->
+                    <img src="imgs/warrior-shieldmaiden-heroine-anime.png" alt="Ilustração do personagem">
+                </div>
+
+                <div class="texto-longo">
+                    <label for="biografia">Biografia</label>
+                    <textarea id="biografia" name="biografia"></textarea>
+                </div>
+            </section>
+
+            <section class="secundario">
+                <div class="texto-longo">
+                    <label for="equipamentos">Equipamentos</label>
+                    <textarea id="equipamentos" name="equipamentos"></textarea>
+                </div>
+                <div class="texto-longo">
+                    <label for="caracteristicas">Características</label>
+                    <textarea id="caracteristicas" name="caracteristicas"></textarea>
+                </div>
+            </section>
+        </main>
+
+        <footer class="rodape">
+            🚀 <a href="#">Ctrl + Play</a> <!-- troque o # pelo link do site -->
+        </footer>
+    </form>
+</body>
+</html>
